@@ -55,6 +55,39 @@ const allProducts = await Product.findAll();
   return res.json(allProducts);
 });
 
+app.get('/products/:id', async (req, res) => {
+  const id = req.params.id;
+  const product = await Product.findByPk(id);
+  return res.json(product);
+});
+
+app.delete('/products/:id', async (req, res) =>{
+  const id = req.params.id;
+  const product = await Product.findByPk(id);
+  if (!product) {
+    return res.status(404).json({ message: 'Product not found.' });
+  }
+  product.destroy()
+    .then(() => {
+      return res.json({ message: 'Product deleted successfully!' });
+    })
+    .catch((error) => {
+      return res.status(500).json({ message: 'An error occurred while deleting the product.' });
+    });
+})
+
+app.put('/products/:id', async (req, res) =>{
+  const id = req.params.id;
+  const product = await Product.findByPk(id);
+  product.update({ name, description, amount, urlImage })
+    .then(() => {
+      return res.json({ message: 'Product updated successfully.' });
+    })
+    .catch((error) => {
+      return res.json({ message: 'An error occurred while updating the product.' });
+    });
+});
+
 app.post('/products/', (req, res) => {
   const { name, description, amount, urlImage } = req.body;
     Product.create({
@@ -64,9 +97,9 @@ app.post('/products/', (req, res) => {
       urlImage,
     })
       .then((newProduct) => {
-        return res.json({ message: 'Produto criado com sucesso!' });
+        return res.json({ message: 'Product created successfully!' });
       })
       .catch((error) => {
-        return res.json({ message: 'Ocorreu um erro ao salvar o produto.' });
+        return res.json({ message: 'An error occurred while saving the product.' });
       });
 });
