@@ -58,6 +58,9 @@ const allProducts = await Product.findAll();
 app.get('/products/:id', async (req, res) => {
   const id = req.params.id;
   const product = await Product.findByPk(id);
+  if (!product) {
+    return res.status(404).json({ message: 'Product not found.' });
+  }
   return res.json(product);
 });
 
@@ -79,6 +82,9 @@ app.delete('/products/:id', async (req, res) =>{
 app.put('/products/:id', async (req, res) =>{
   const id = req.params.id;
   const product = await Product.findByPk(id);
+  if (!product) {
+    return res.status(404).json({ message: 'Product not found.' });
+  }
   product.update({ name, description, amount, urlImage })
     .then(() => {
       return res.json({ message: 'Product updated successfully.' });
