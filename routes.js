@@ -81,6 +81,7 @@ app.delete('/products/:id', async (req, res) =>{
 
 app.put('/products/:id', async (req, res) =>{
   const id = req.params.id;
+  const { name, description, amount, urlImage } = req.body;
   const product = await Product.findByPk(id);
   if (!product) {
     return res.status(404).json({ message: 'Product not found.' });
