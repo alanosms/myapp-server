@@ -11,7 +11,7 @@ const USER_DB = "alanosms";
 const PASSWORD_DB = "DUy4J7eyPSP64G6";
 const HOST = "localhost";
 
-const { Sequelize, Model, DataTypes, json } = require("sequelize");
+const { Sequelize } = require("sequelize");
 
 const sequelize = new Sequelize(SCHEMA_DB, USER_DB, PASSWORD_DB, {
   host: HOST,
