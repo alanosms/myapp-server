@@ -5,7 +5,7 @@ Esta API foi construída com o objetivo de gerenciar o estoque de uma empresa.
 Para o desenvolvimento, foram utilizados Node.js, Sequelize, Express e um banco de dados MySQL.
 
 ## Funcionalidades
-• A API possui as seguintes funcionalidades:
+### A API possui as seguintes funcionalidades:
 
 • Listagem de todos os produtos do estoque
 
@@ -24,7 +24,7 @@ Clone este repositório para sua máquina e execute os seguintes comandos:
 ```
 npm install
 
-npm run
+npm start
 ```
 ## Configuração do banco de dados
 Antes de iniciar a API, é necessário configurar a conexão com o banco de dados MySQL. Para isso, basta alterar as seguintes variáveis no arquivo de código:
@@ -35,6 +35,8 @@ PASSWORD_DB: Senha do usuário do banco de dados
 HOST: Endereço do servidor do banco de dados
 ## Rotas da API
 A API possui as seguintes rotas:
+
+As rotas estarão disponíveis na porta 3030.
 
 ``GET`` `/products:` Retorna a lista de todos os produtos do estoque
 
