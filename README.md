@@ -30,8 +30,11 @@ npm start
 Antes de iniciar a API, é necessário configurar a conexão com o banco de dados MySQL. Para isso, basta alterar as seguintes variáveis no arquivo de código:
 
 SCHEMA_DB: Nome do esquema do banco de dados
+
 USER_DB: Nome de usuário do banco de dados
+
 PASSWORD_DB: Senha do usuário do banco de dados
+
 HOST: Endereço do servidor do banco de dados
 ## Rotas da API
 A API possui as seguintes rotas:
